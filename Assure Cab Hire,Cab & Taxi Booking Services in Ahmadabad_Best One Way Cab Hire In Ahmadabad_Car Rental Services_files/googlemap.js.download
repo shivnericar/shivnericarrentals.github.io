@@ -1,0 +1,12 @@
+﻿var placeSearch, autocomplete;
+
+function initAutocomplete() {
+  $("input[id*='location']").each(function() {
+   autocomplete = new google.maps.places.Autocomplete(/* @type {HTMLInputElement} */(this),{types: ['(cities)'] });   
+   autocomplete.setComponentRestrictions({ 'country': 'IN' });
+   google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    fillInAddress();
+   });
+  });
+    
+}
